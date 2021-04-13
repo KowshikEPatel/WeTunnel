@@ -62,6 +62,9 @@ function pinger(){
 
 function pingerPostAuthorization(){
   console.log(window.location.href)
+  let x=window.location.href
+  let y = x.split("&")
+  console.log(y)
 }
 
 
