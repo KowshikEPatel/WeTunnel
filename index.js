@@ -65,6 +65,11 @@ function pingerPostAuthorization(){
   let x=window.location.href
   let y = x.split("&")
   console.log(y)
+  let access_token = y[1].split("=")[1]
+  console.log(access_token);
+  fetch(`https://www.googleapis.com/youtube/v3/channels?access_token=${access_token}&part=snippet&mine=true`)
+  .then(response=>console.log(response.json()))
+  
 }
 
 
