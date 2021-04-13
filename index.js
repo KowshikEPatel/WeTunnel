@@ -55,10 +55,15 @@ function authorize(){
 
 function pinger(){
 
-  console.log(window.location.href)
+  
   fetch('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=AIzaSyBZBpp5F7A7C9q38arfOfGr209ZTfWIhUc')
   .then(response=>console.log(response.json()))
 }
+
+function pingerPostAuthorization(){
+  console.log(window.location.href)
+}
+
 
 
 
