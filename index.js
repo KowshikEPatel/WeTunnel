@@ -69,7 +69,7 @@ function pingerPostAuthorization(){
   console.log(access_token);
   fetch(`https://www.googleapis.com/youtube/v3/channels?access_token=${access_token}&part=snippet&mine=true`)
   .then(response=>response.json())
-  .then(data=>document.body.append(data))
+  .then(data=>document.body.append(JSON.stringify(data)))
 
   fetch(`https://www.googleapis.com/youtube/v3/channels?access_token=${access_token}&part=contentDetails&mine=true`)
   .then(response=>response.json())
