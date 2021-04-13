@@ -68,10 +68,11 @@ function pingerPostAuthorization(){
   let access_token = y[1].split("=")[1]
   console.log(access_token);
   fetch(`https://www.googleapis.com/youtube/v3/channels?access_token=${access_token}&part=snippet&mine=true`)
-  .then(response=>console.log(response.json()))
+  .then(response=>response.json())
+  .then(data=>console.log(data))
 
   fetch(`https://www.googleapis.com/youtube/v3/channels?access_token=${access_token}&part=contentDetails&mine=true`)
-  .then(response=>console.log(response.json()))
+  .then(response=>response.json())
   .then(data=>{
     console.log(data)
     console.log(data.contentDetails)
