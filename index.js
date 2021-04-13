@@ -69,6 +69,22 @@ function pingerPostAuthorization(){
   console.log(access_token);
   fetch(`https://www.googleapis.com/youtube/v3/channels?access_token=${access_token}&part=snippet&mine=true`)
   .then(response=>console.log(response.json()))
+
+  fetch(`https://www.googleapis.com/youtube/v3/channels?access_token=${access_token}&part=contentDetails&mine=true`)
+  .then(response=>console.log(response.json()))
+  .then(data=>{
+    console.log(data)
+    console.log(data.contentDetails)
+    console.log(data.contentDetails.relatedPlaylists)
+    console.log(data.contentDetails.relatedPlaylists.likes)
+
+    fetch(`https://www.googleapis.com/youtube/v3/playlistItems?access_token=${access_token}&part=contentDetails&playlistId=${data.contentDetails.relatedPlaylists.likes}`)
+    .then(response=>console.log(response.json()))
+  })
+
+  fetch(`https://www.googleapis.com/youtube/v3/playlists?access_token=${access_token}&part=snippet&mine=true`)
+  .then(response=>console.log(response.json()))
+
   
 }
 
