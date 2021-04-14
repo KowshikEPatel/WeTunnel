@@ -78,7 +78,10 @@ function pingerPostAuthorization(){
 
 //  fetch(`https://www.googleapis.com/youtube/v3/playlists?access_token=${access_token}&part=snippet&mine=true`)
  // .then(response=>console.log(response.json()))
-
+ fetch(`https://www.googleapis.com/youtube/v3//search?part=snippet&access_token=${access_token}&part=snippet&q=soccer&mine=true&key=AIzaSyBZBpp5F7A7C9q38arfOfGr209ZTfWIhUc`)
+ .then(response=>{return response.json()})
+ .then(data=>console.log(data))
+ 
 }
 
 
