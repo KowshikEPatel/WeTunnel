@@ -105,13 +105,14 @@ const myRequest1 = new Request(`https://www.googleapis.com/youtube/v3/playlists?
   cache: 'default',                     
 });
  
- fetch(myRequest2)
+fetch(myRequest2)
  .then(response=>{return response.json()})
  .then(data=>{
   
   console.log(data)
-  console.log(data.kind)
+  
   })
+
  
 }
 
