@@ -101,7 +101,7 @@ const myRequest1 = new Request(`https://www.googleapis.com/youtube/v3/playlists?
   const myRequest2 = new Request(`https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?part=snippet&q=GoogleDevelopers&type=playlist`, {
   method: 'GET',
   headers: myHeaders2,
-  mode: 'cors',
+  mode: 'no-cors',
   cache: 'default',                     
 });
  
