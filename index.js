@@ -79,6 +79,19 @@ const myRequest = new Request(`https://www.googleapis.com/youtube/v3/channels?ac
  fetch(myRequest)
  .then(response=>{return response.json()})
  .then(data=>console.log(data))
+
+ const myHeaders1 = new Headers();
+
+const myRequest1 = new Request(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UC_x5XG1OV2P6uZZ5FSM9Ttw&key=AIzaSyBZBpp5F7A7C9q38arfOfGr209ZTfWIhUc`, {
+  method: 'GET',
+  headers: myHeaders1,
+  mode: 'cors',
+  cache: 'default',                     
+});
+ 
+ fetch(myRequest1)
+ .then(response=>{return response.json()})
+ .then(data=>console.log(data))
  
 }
 
