@@ -61,13 +61,13 @@ function pinger(){
 }
 
 function pingerPostAuthorization(){
-  console.log(window.location.href)
-  let x=window.location.href
-  let y = x.split("&")
-  console.log(y)
-  let access_token = y[1].split("=")[1]
-  console.log(access_token);
-  fetch(`https://www.googleapis.com/youtube/v3/channels?access_token=${access_token}&part=snippet&mine=true`)
+ 
+  //let x=window.location.href
+  //let y = x.split("&")
+  
+ // let access_token = y[1].split("=")[1]
+  //console.log(access_token);
+  fetch(`https://www.googleapis.com/youtube/v3/channels?access_token=ya29.a0AfH6SMDSNiT6g67YYqixsThcgR625DO_asss_DSGIU9hzJGcMlS9CkpI3xM_pjV2fmqSWW5DjoGodWWFZrfdAG6AtY_NJOPgPVPT8gceK70obZKPrEmFD6rsYZz0Wlc57skSCEWwmnJ_tyKTjhQ6W7T4fq9F1g&part=snippet&mine=true`)
   .then(response=>{return response.json()})
   .then(data=>console.log(data))
 
@@ -78,11 +78,23 @@ function pingerPostAuthorization(){
 
 //  fetch(`https://www.googleapis.com/youtube/v3/playlists?access_token=${access_token}&part=snippet&mine=true`)
  // .then(response=>console.log(response.json()))
- fetch(`https://www.googleapis.com/youtube/v3//search?part=snippet&access_token=${access_token}&part=snippet&q=soccer&mine=true&key=AIzaSyBZBpp5F7A7C9q38arfOfGr209ZTfWIhUc`)
+ 
+ const myHeaders = new Headers();
+
+const myRequest = new Request(`https://www.googleapis.com/youtube/v3/channels?access_token=ya29.a0AfH6SMDSNiT6g67YYqixsThcgR625DO_asss_DSGIU9hzJGcMlS9CkpI3xM_pjV2fmqSWW5DjoGodWWFZrfdAG6AtY_NJOPgPVPT8gceK70obZKPrEmFD6rsYZz0Wlc57skSCEWwmnJ_tyKTjhQ6W7T4fq9F1g&part=snippet&mine=true`, {
+  method: 'GET',
+  headers: myHeaders,
+  mode: 'cors',
+  cache: 'default',
+});
+ 
+ fetch(myRequest)
  .then(response=>{return response.json()})
  .then(data=>console.log(data))
  
 }
+
+
 
 
 
