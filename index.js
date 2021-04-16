@@ -122,7 +122,7 @@ function pingForActivity(){
   
   console.log("in construction")
   let baseApi = `https://www.googleapis.com/youtube/v3/` 
-  let extensionForActivity = `activities?part=snippet,contentDetails&mine=true&publishedAfter=2013-04-01T00%3A00%3A00Z&publishedBefore=2013-05-01T00%3A00%3A00Z`
+  let extensionForActivity = `activities?part=snippet,contentDetails&mine=true&publishedAfter=2021-04-15T00%3A00%3A00Z&publishedBefore=2013-04-16T00%3A00%3A00Z`
   let x=window.location.href
   let y = x.split("&")
   
