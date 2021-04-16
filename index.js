@@ -145,15 +145,15 @@ function pingForActivity(){
 
   extensionForActivity = `activities?part=snippet,contentDetails&home=true`;
   callApi = baseApi + extensionForActivity + `&access_token=${access_token}`;
-  const myHeaders1 = new Headers();
-  const myRequest1 = new Request(callApi, {
+  const myHeaders2 = new Headers();
+  const myRequest2 = new Request(callApi, {
     method: 'GET',
-    headers: myHeaders1,
+    headers: myHeaders2,
     mode: 'cors',
     cache: 'default',                     
   });
    
-   fetch(myRequest1)
+   fetch(myRequest2)
    .then(response=>{return response.json()})
    .then(data=>{
     console.log(data)
