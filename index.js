@@ -53,13 +53,6 @@ function authorize(){
 
 }
 
-function pinger(){
-
-  
-  fetch('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true&key=AIzaSyBZBpp5F7A7C9q38arfOfGr209ZTfWIhUc')
-  .then(response=>console.log(response.json()))
-}
-
 function pingerPostAuthorization(){
  
   let x=window.location.href
@@ -116,6 +109,57 @@ fetch(myRequest2)
  
 }
 
+function searchFunction(){
+
+  /*determine the serach key and search type in the options and input type */
+  /* pick the correct corresponding api to ping and ping it  */
+  // decide a way to show the results other than just embedding 
+console.log("in construction")
+
+}
+
+function pingForActivity(){
+  
+  console.log("in construction")
+  let baseApi = `https://www.googleapis.com/youtube/v3/` 
+  let extensionForActivity = `activities?part=snippet,contentDetails&mine=true&publishedAfter=2013-04-01T00%3A00%3A00Z&publishedBefore=2013-05-01T00%3A00%3A00Z`
+  let x=window.location.href
+  let y = x.split("&")
+  
+  let access_token = y[1].split("=")[1]
+  let callApi = baseApi + extensionForActivity + `&access_token=${access_token}` 
+  console.log(callApi);
+  const myHeaders1 = new Headers();
+  const myRequest1 = new Request(callApi, {
+    method: 'GET',
+    headers: myHeaders1,
+    mode: 'cors',
+    cache: 'default',                     
+  });
+   
+   fetch(myRequest1)
+   .then(response=>{return response.json()})
+   .then(data=>{
+    console.log(data)
+})
+}
+
+function pingForSubscription(){
+
+  console.log("in construction")
+
+}
+
+function uploadAVideo(){
+
+  console.log("in construction")
+
+}
+
+function uploadAPlaylist(){
+  console.log("in construction")
+
+}
 
 
 

@@ -23,9 +23,16 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <button class="btn btn-secondary" onclick="authorize()">Authorize</button>
-                <button class="btn btn-secondary" onclick="pinger()">Pinger</button>
-                <button class="btn btn-secondary" onclick="pingerPostAuthorization()">Pinger Post autorization</button>
+                <button class="btn btn-secondary" onclick="authorize()">Sign in</button>
+                <br>
+                <div><button class="btn btn-secondary" onclick="pingerPostAuthorization()">Older Pinger</button>
+                    <button class="btn btn-secondary" onclick="pingForActivity()">Check my activity</button>
+                    <button class="btn btn-secondary" onclick="pingForSubscription()">Check my subscriptions</button>
+                    <button class="btn btn-secondary" onclick="uploadAVideo()">Upload a video</button>
+                    <button class="btn btn-secondary" onclick="uploadAPlaylist()">Upload a playlist</button></div>
+               <br>
+
+               <div><label for="combinedsearch"><select name="searchtype" id="searchtype"><option value="topic">Topic</option><option value="playlist">Playlist</option><option value="channel">Channel</option></select>&emsp;<input type="text" name="combinedsearch" id="combinedsearch" placeholder="search key"></label>&emsp;<button class="btn btn-secondary" onclick="searchFunction()">Search</button></div>
 
              </div>
         </div>
