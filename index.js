@@ -160,8 +160,29 @@ function pingForActivity(){
 })
 }
 
-function pingForSubscription(){
+let baseApi = `https://www.googleapis.com/youtube/v3/` 
 
+function pingForSubscription(){
+let extensionForSubs = `subscriptions?part=snippet`
+let x=window.location.href
+let y = x.split("&")
+
+let access_token = y[1].split("=")[1]
+let callapi = baseApi + extensionForSubs + `&access_token=${access_token}`;
+ 
+ fetch(callapi,{
+  body:{
+    'snippet': {
+      'resourceId': {
+        'kind': 'youtube#channel',
+        'channelId': 'UCknLrEdhRCp1aegoMqRaCZg' 
+       }
+     }
+  }
+
+ })
+ .then(response=>response.json())
+ .then(data=>console.log(data))
   console.log("in construction")
 
 }
@@ -176,6 +197,8 @@ function uploadAPlaylist(){
   console.log("in construction")
 
 }
+
+
 
 
 
