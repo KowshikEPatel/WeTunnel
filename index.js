@@ -171,6 +171,7 @@ let access_token = y[1].split("=")[1]
 let callapi = baseApi + extensionForSubs + `&access_token=${access_token}`;
  
  fetch(callapi,{
+  method:'POST',
   body:{
     'snippet': {
       'resourceId': {
@@ -178,7 +179,7 @@ let callapi = baseApi + extensionForSubs + `&access_token=${access_token}`;
         'channelId': 'UCknLrEdhRCp1aegoMqRaCZg' 
        }
      }
-  }
+  },
 
  })
  .then(response=>response.json())
