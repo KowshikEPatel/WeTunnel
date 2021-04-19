@@ -1,4 +1,4 @@
-/*function createDomMani(ele,elementClass="",...arr){
+function createDomMani(ele,elementClass="",...arr){
     var element1=document.createElement(ele);
     element1.setAttribute("class",elementClass);
     for(let iter=0;iter<arr.length;iter++){
@@ -18,7 +18,7 @@
     <h2>Ease your YouTube journey</h2>
 
     <a href="privacypolicy.html">Privacy policy</a>
-    <a href="termsofservice.html">Terms of service</a>
+    <a href="termsofservice.html">Terms of service</a>*/
      
 
 function authorize(){
@@ -112,7 +112,7 @@ fetch(myRequest2)
 function searchFunction(){
 
   /*determine the serach key and search type in the options and input type */
-  /* pick the correct corresponding api to ping and ping it  
+  /* pick the correct corresponding api to ping and ping it  */
   // decide a way to show the results other than just embedding 
 console.log("in construction")
 
@@ -197,11 +197,11 @@ function uploadAVideo(){
 function uploadAPlaylist(){
   console.log("in construction")
 
-}*/
+}
 
 
 // Options
-
+/*
 const CLIENT_ID = '590286321652-8q6ovcufajo6n018aogjgaeq8r5ji9be.apps.googleusercontent.com';
 const DISCOVERY_DOCS = [
   'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'
@@ -357,7 +357,7 @@ function requestVideoPlaylist(playlistId) {
       videoContainer.innerHTML = 'No Uploaded Videos';
     }
   });
-}
+}*/
 
 
 
