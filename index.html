@@ -9,7 +9,7 @@
     <title>WeTunnel utube</title>
 </head>
 <body>
-<header id="header" class="fixed-top">
+<header id="header" class="fixed-top header-scrolled">
   <div class="container d-flex align-items-center justify-content-between"></div>
   <h1 class="logo"><a href="index.html">Wetunnel</a></h1>
   <nav id="navbar" class="navbar">
@@ -18,9 +18,31 @@
       <li><a class="nav-link scrollto" href="#accessAccount"></a>Your youtube account</li>
       <li><a class="nav-link scrollto" href="#genericAccess">Generic access</a></li>
     </ul>
+    <i class="bi bi-list mobile-nav-toggle"></i>
   </nav>
 </header>
-  
+  <section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade pointer-event" data-bs-ride="carousel">
+      <ol class="carousel-indicators" id="hero-carousel-indicators">
+        <li data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></li>
+        <li data-bs-target="#heroCarousel" data-bs-slide-to="1" class></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item" style="background-image: url(assets/img/slide/slide-1.jpg);">
+        <div class="carousel-container">
+          <div class="container">
+            <h2 class="animate__animated animate__fadeInDown">Welcome to Wetunnel</h2>
+            <h2 class="animate__animated animate__fadeInDown">To manage your youtube account</h2>
+            <p class="animate__animated animate__fadeInUp"><a href="#accessAccount" class="btn-get-start scrollto">Log In</a></p>
+          </div>
+        </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
     
 
    <script src="index.js"></script>

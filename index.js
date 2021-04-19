@@ -13,12 +13,11 @@ function createDomMani(ele,elementClass="",...arr){
     }
     return element1;
 }
-/*<script src="https://apis.google.com/js/api.js"></script>
-    <h1>WeTunnel </h1>
-    <h2>Ease your YouTube journey</h2>
-
-    <a href="privacypolicy.html">Privacy policy</a>
-    <a href="termsofservice.html">Terms of service</a>*/
+const CLIENT_ID = '590286321652-8q6ovcufajo6n018aogjgaeq8r5ji9be.apps.googleusercontent.com';
+const DISCOVERY_DOCS = [
+  'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'
+];
+const SCOPES = 'https://www.googleapis.com/auth/youtube.readonly';
      
 
 function authorize(){
@@ -199,6 +198,28 @@ function uploadAPlaylist(){
 
 }
 
+// Load auth2 library
+function handleClientLoad() {
+  gapi.load('client:auth2', initClient);
+}
+
+// Init API client library and set up sign in listeners
+function initClient() {
+  gapi.client
+    .init({
+      discoveryDocs: DISCOVERY_DOCS,
+      clientId: CLIENT_ID,
+      scope: SCOPES
+    })
+    .then(() => {
+      // Listen for sign in state changes
+      gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+      // Handle initial sign in state
+      updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+      authorizeButton.onclick = handleAuthClick;
+      signoutButton.onclick = handleSignoutClick;
+    });
+}
 
 // Options
 /*
