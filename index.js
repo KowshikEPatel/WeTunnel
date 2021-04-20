@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 function createDomMani(ele,elementClass="",...arr){
     var element1=document.createElement(ele);
     element1.setAttribute("class",elementClass);
@@ -85,6 +87,27 @@ function signOutOfYoutbe(){
 
 function getUserData(){
 console.log("i got user data");
+/*const myHeaders2 = new Headers();
+  const myRequest2 = new Request(`https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?part=snippet&q=GoogleDevelopers&type=playlist`, {
+  method: 'GET',
+  headers: myHeaders2,
+  mode: 'no-cors',
+  cache: 'default',                     
+});
+ 
+fetch(myRequest2)
+ .then(response=>{return response.json()})
+ .then(data=>{
+  
+  console.log(data)
+  
+  })*/
+  gapi.client.youtube.channels.list({
+    part : 'snipper,contentDetails,statistics'
+  })
+  .then(response=>{
+    console.log(response);
+  })
 
 }
 
