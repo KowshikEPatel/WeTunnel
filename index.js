@@ -172,10 +172,21 @@ function searchelement()
         while(elementy.hasChildNodes()){
             elementy.removeChild(elementy.firstChild)
         }
+        let input1Element = createDomMani("input","text","type=text");
+        input1Element.value = searchKey;
+        elementy.appendChild(input1Element);
+        let cardGroupElement = createDomMani("div","card-group");
         data.items.forEach(element => {
-            let iframe1Element = createDomMani("iframe","video",`src=https://www.youtube.com/embed/${element.id.videoId}`)
-            document.getElementById("searchedRow").appendChild(iframe1Element);
+          let cardElement = createDomMani("div","card");
+          let cardBodyElement = createDomMani("div","card-body");
+          let iframe1Element = createDomMani("iframe","card-img-top",`src=https://www.youtube.com/embed/${element.id.videoId}`);
+          let cardTitleElement = createDomMani("h5","card-title",`${element.snippet.title}`);
+          let cardTextElement = createDomMani("p","card-text",`${element.snippet.channelTitle}`);
+          cardBodyElement.append(cardTitleElement,cardTextElement);
+          cardElement.append(iframe1Element,cardBodyElement);
+          cardGroupElement.appendChild(cardElement);
         });
+        elementy.appendChild(cardGroupElement);
     })
 
 }
