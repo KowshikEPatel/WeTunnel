@@ -168,14 +168,13 @@ function searchelement()
     .then(response=>response.json())
     .then(data=>{
       console.log(data);
-      let elementy = document.getElementById("searchedRow")
-        while(elementy.hasChildNodes()){
-            elementy.removeChild(elementy.firstChild)
-        }
+      let containerElement = document.getElementById("searchedContent");
+
+      let rowElement = document.getElementById("searchedRow")
         let input1Element = createDomMani("input","text","type=text");
         input1Element.value = searchKey;
-        elementy.append(input1Element);
-        
+        rowElement.append(input1Element);
+        let row2Element = createDomMani("div","row");
         data.items.forEach(element => {
           let columnElement = createDomMani("div","col-sm-4")
           let cardElement = createDomMani("div","card");
@@ -187,9 +186,9 @@ function searchelement()
           cardElement.append(iframe1Element,cardBodyElement);
           
           columnElement.append(cardElement);
-          elementy.append(columnElement);
+          row2Element.append(columnElement);
         });
-       
+       containerElement.append(rowElement,row2Element);
     })
 
 }
