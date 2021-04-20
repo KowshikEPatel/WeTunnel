@@ -170,7 +170,7 @@ function searchelement()
       console.log(data);
       let containerElement = document.getElementById("searchedContent");
 
-      let rowElement = document.getElementById("searchedRow")
+      let rowElement = createDomMani("div","row");
         let input1Element = createDomMani("input","text","type=text");
         input1Element.value = searchKey;
         rowElement.append(input1Element);
