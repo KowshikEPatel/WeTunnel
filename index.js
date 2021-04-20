@@ -148,6 +148,7 @@ fetch(myRequest2)
 
     })
     .catch(err => alert('No Channel By That Name'));
+    console.log(GoogleUser.getAuthResponse(true))
 }
 
 function searchelement()
