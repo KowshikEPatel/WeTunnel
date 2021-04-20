@@ -174,7 +174,7 @@ function searchelement()
         }
         let input1Element = createDomMani("input","text","type=text");
         input1Element.value = searchKey;
-        elementy.appendChild(input1Element);
+        elementy.append(input1Element);
         
         data.items.forEach(element => {
           let columnElement = createDomMani("div","col-sm-4")
@@ -187,7 +187,7 @@ function searchelement()
           cardElement.append(iframe1Element,cardBodyElement);
           
           columnElement.append(cardElement);
-          elementy.appendChild(columnElement);
+          elementy.append(columnElement);
         });
        
     })
