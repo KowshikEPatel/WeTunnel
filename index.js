@@ -96,7 +96,7 @@ const myHeaders2 = new Headers();
 });
  
 fetch(myRequest2)
- .then(response=>{return response.json()})
+ .then(response=> response.json())
  .then(data=>{
   console.log(data)
   })
