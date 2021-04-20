@@ -51,3 +51,7 @@
 .select-css option {
 	font-weight:normal;
 }
+
+#videoContent, #searchedContent{
+    display: none;
+}

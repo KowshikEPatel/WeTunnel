@@ -25,12 +25,14 @@ const content = document.getElementById('content');
 const channelForm = document.getElementById('channel-form');
 const channelInput = document.getElementById('channel-input');
 const videoContainer = document.getElementById('video-container');
-     
+const carouselElement = document.getElementById("carouselExampleIndicators");
+const videoCardElement = document.getElementById("videoContent");
+const searchCardElement = document.getElementById("searchedContent");      
 
 function handleClientLoad(){
   console.log("auth btn clicked")
   gapi.load('client:auth2', initClient);
-  
+ // carouselElement.style.display="none";
 }
 
 function initClient() {
@@ -48,6 +50,23 @@ function initClient() {
       authorizeButton.onclick = handleAuthClick;
       signoutButton.onclick = handleSignoutClick;
     });
+}
+
+function handleSignoutClick() {
+  gapi.auth2.getAuthInstance().signOut();
+}
+
+function handleAuthClick() {
+  gapi.auth2.getAuthInstance().signIn();
+}
+
+function signOutOfYoutbe(){
+  
+  handleSignoutClick();
+  searchCardElement.style.display = "none";
+  videoCardElement.style.display = "none";
+  carouselElement.style.display = "block";
+
 }
 
 function searchelement()
