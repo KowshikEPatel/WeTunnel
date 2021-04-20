@@ -21,10 +21,7 @@ const SCOPES = 'https://www.googleapis.com/auth/youtube.readonly';
 
 const authorizeButton = document.getElementById('authorize-button');
 const signoutButton = document.getElementById('signout-button');
-const content = document.getElementById('content');
-const channelForm = document.getElementById('channel-form');
-const channelInput = document.getElementById('channel-input');
-const videoContainer = document.getElementById('video-container');
+
 const carouselElement = document.getElementById("carouselExampleIndicators");
 const videoCardElement = document.getElementById("videoContent");
 const searchCardElement = document.getElementById("searchedContent");      
@@ -32,7 +29,7 @@ const searchCardElement = document.getElementById("searchedContent");
 function handleClientLoad(){
   console.log("auth btn clicked")
   gapi.load('client:auth2', initClient);
- // carouselElement.style.display="none";
+  
 }
 
 function initClient() {
@@ -48,7 +45,7 @@ function initClient() {
       // Handle initial sign in state
       updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
       authorizeButton.onclick = handleAuthClick;
-      signoutButton.onclick = handleSignoutClick;
+      signoutButton.onclick = signOutOfYoutbe;
     });
 }
 
@@ -60,12 +57,34 @@ function handleAuthClick() {
   gapi.auth2.getAuthInstance().signIn();
 }
 
+function updateSigninStatus(isSignedIn) {
+  if (isSignedIn) {
+    authorizeButton.style.display = 'none';
+    carouselElement.style.display="none";
+    signoutButton.style.display = 'block';
+    videoCardElement.style.display = 'block';
+    searchCardElement.style.display = 'none';
+    getUserData();
+  } else {
+    authorizeButton.style.display = 'block';
+    signoutButton.style.display = 'none';
+    carouselElement.style.display="block";
+    videoCardElement.style.display = 'none';
+    searchCardElement.style.display = 'none';
+  }
+}
+
 function signOutOfYoutbe(){
   
   handleSignoutClick();
   searchCardElement.style.display = "none";
   videoCardElement.style.display = "none";
   carouselElement.style.display = "block";
+
+}
+
+function getUserData(){
+console.log("i got user data");
 
 }
 
