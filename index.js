@@ -156,3 +156,45 @@ function searchelement()
   console.log("search btn clicked")
 
 }
+
+function showChannelData(data) {
+  const channelData = document.getElementById('userActivity');
+  channelData.innerHTML = data;
+}
+
+
+function requestVideoPlaylist(playlistId){
+
+  let videorow=document.getElementById("usersChannels")
+  const requestOptions = {
+  playlistId: playlistId,
+  part: 'snippet',
+  maxResults: 10
+};
+
+const request = gapi.client.youtube.playlistItems.list(requestOptions);
+
+request.execute(response => {
+  console.log(response);
+  const playListItems = response.result.items;
+  if (playListItems) {
+    let output = '<br><h4 class="center-align">Latest Videos</h4>';
+
+    // Loop through videos and append output
+    playListItems.forEach(item => {
+      const videoId = item.snippet.resourceId.videoId;
+
+      output += `
+        <div class="col s3">
+        <iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      `;
+    });
+
+    // Output videos
+    videorow.innerHTML = output;
+  } else {
+    videorow.innerHTML = 'No Uploaded Videos';
+  }
+});
+}
