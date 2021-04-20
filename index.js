@@ -102,7 +102,7 @@ fetch(myRequest2)
   console.log(data)
   
   })
-  console.log(gapi.auth2.AuthResponse.id_token)
+  console.log(gapi.auth2)//.AuthResponse.id_token
 
 
   gapi.client.youtube.channels.list({
