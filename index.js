@@ -1,4 +1,4 @@
-const { response } = require("express");
+//const { response } = require("express");
 
 function createDomMani(ele,elementClass="",...arr){
     var element1=document.createElement(ele);
