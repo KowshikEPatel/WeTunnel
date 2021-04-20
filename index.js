@@ -103,11 +103,21 @@ fetch(myRequest2)
   
   })
   console.log(gapi.auth2)//.AuthResponse.id_token
-
+  ({
+    "part": [
+      "id"
+    ],
+    "mine": true
+  })
+      .then(function(response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log("Response", response);
+            },
+            function(err) { console.error("Execute error", err); });
 
   gapi.client.youtube.channels.list({
     part : 'snipper,contentDetails,statistics',
-    forUsername : 'GoogleDevelopers'
+    forUsername : 'Kowshik E Patel'//nothing-> GoogleDevelopers->Kowshik E Patel
   })
   .then(response=>{
     console.log(response);
