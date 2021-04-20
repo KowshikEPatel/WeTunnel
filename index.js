@@ -169,7 +169,9 @@ function searchelement()
     .then(data=>{
       console.log(data);
       let containerElement = document.getElementById("searchedContent");
-
+      while (containerElement.firstChild) {
+        containerElement.removeChild(containerElement.firstChild);
+     }
       let rowElement = createDomMani("div","row");
         let input1Element = createDomMani("input","text","type=text");
         input1Element.value = searchKey;
