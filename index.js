@@ -175,8 +175,9 @@ function searchelement()
         let input1Element = createDomMani("input","text","type=text");
         input1Element.value = searchKey;
         elementy.appendChild(input1Element);
-        let cardGroupElement = createDomMani("div","card-group");
+        
         data.items.forEach(element => {
+          let columnElement = createDomMani("div","col-sm-4")
           let cardElement = createDomMani("div","card");
           let cardBodyElement = createDomMani("div","card-body");
           let iframe1Element = createDomMani("iframe","card-img-top",`src=https://www.youtube.com/embed/${element.id.videoId}`);
@@ -184,9 +185,11 @@ function searchelement()
           let cardTextElement = createDomMani("p","card-text",`${element.snippet.channelTitle}`);
           cardBodyElement.append(cardTitleElement,cardTextElement);
           cardElement.append(iframe1Element,cardBodyElement);
-          cardGroupElement.appendChild(cardElement);
+          
+          columnElement.append(cardElement);
+          elementy.appendChild(columnElement);
         });
-        elementy.appendChild(cardGroupElement);
+       
     })
 
 }
