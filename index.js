@@ -110,13 +110,15 @@ fetch(myRequest2)
 .then(function(response){
      // Handle the results here (response.result has the parsed body).
       console.log("Response", response);
+      console.log(response.result.items[0].id);
+
   },
   function(err) { console.error("Execute error", err); });
 
 
   gapi.client.youtube.channels.list({
   part: 'snippet,contentDetails,statistics',
-  forUsername: channel
+  forUsername: 'Kowshik E Patel'
   })
   .then(response => {
       console.log(response);
@@ -148,7 +150,7 @@ fetch(myRequest2)
 
     })
     .catch(err => alert('No Channel By That Name'));
-    console.log(GoogleUser.getAuthResponse(true))
+    console.log('authresponse',GoogleUser.getAuthResponse(true))
 }
 
 function searchelement()
