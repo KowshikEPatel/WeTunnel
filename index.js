@@ -173,7 +173,9 @@ function searchelement()
       let rowElement = createDomMani("div","row");
         let input1Element = createDomMani("input","text","type=text");
         input1Element.value = searchKey;
-        rowElement.append(input1Element);
+        let buttonElement = document.getElementById("search-button");
+        let searchTypeElement = document.getElementById("searchtype");
+        rowElement.append(searchTypeElement,input1Element,buttonElement);
         let row2Element = createDomMani("div","row");
         data.items.forEach(element => {
           let columnElement = createDomMani("div","col-sm-4")
