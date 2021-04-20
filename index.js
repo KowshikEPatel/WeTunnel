@@ -87,8 +87,8 @@ function signOutOfYoutbe(){
 
 function getUserData(){
 console.log("i got user data");
-/*const myHeaders2 = new Headers();
-  const myRequest2 = new Request(`https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?part=snippet&q=GoogleDevelopers&type=playlist`, {
+const myHeaders2 = new Headers();
+  const myRequest2 = new Request(`/activities?part=snippet,contentDetails&home=true`, {
   method: 'GET',
   headers: myHeaders2,
   mode: 'no-cors',
@@ -101,7 +101,10 @@ fetch(myRequest2)
   
   console.log(data)
   
-  })*/
+  })
+  console.log(gapi.auth2.AuthResponse.id_token)
+
+
   gapi.client.youtube.channels.list({
     part : 'snipper,contentDetails,statistics'
   })
