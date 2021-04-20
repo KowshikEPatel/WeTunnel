@@ -110,7 +110,8 @@ fetch(myRequest2)
 .then(function(response){
      // Handle the results here (response.result has the parsed body).
       console.log("Response", response);
-      console.log(response.result.items[0].id);
+      console.log( "id",response.result.items[0].id);
+
 
   },
   function(err) { console.error("Execute error", err); });
@@ -155,13 +156,41 @@ fetch(myRequest2)
 
 function searchelement()
 {
+  searchUiModifier();
   console.log("search btn clicked")
+  let searchType = document.getElementById("searchtype").value;
+  let searchKey = document.getElementById("searchelement").value;
+  console.log(searchType,searchKey);
+  
+  let apiKey = 'AIzaSyBZBpp5F7A7C9q38arfOfGr209ZTfWIhUc';
+  let url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&type=${searchType}&part=snippet&maxResults=10&q=${searchKey}`;
+  fetch(url)
+    .then(response=>response.json())
+    .then(data=>{
+      console.log(data);
+      let elementy = document.getElementById("searchedRow")
+        while(elementy.hasChildNodes()){
+            elementy.removeChild(elementy.firstChild)
+        }
+        data.items.forEach(element => {
+            let iframe1Element = createDomMani("iframe","video",`src=https://www.youtube.com/embed/${element.id.videoId}`)
+            document.getElementById("searchedRow").appendChild(iframe1Element);
+        });
+    })
 
+}
+
+function searchUiModifier(){
+  authorizeButton.style.display = 'none';
+    carouselElement.style.display="none";
+    signoutButton.style.display = 'none';
+    videoCardElement.style.display = 'none';
+    searchCardElement.style.display = 'block';
 }
 
 function showChannelData(data) {
   const channelData = document.getElementById('userActivity');
-  channelData.innerHTML = data;
+  channelData.innerText = data;
 }
 
 
